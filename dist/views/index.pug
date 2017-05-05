@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kanban API Reference</title>
+</head>
+<body>
+    h3 Kanban API Reference
+p
+  | ALL requests require a key parameter, eg &grave;reduxblog.herokuapp.com/api/posts?key=123&grave;
+table
+  thead
+    tr
+      th Endpoint
+      th Method
+      th Sample Response
+      th Description
+  tbody 
+      td /api/v1/boards
+      td GET
+      td
+        pre.
+           [
+                {
+                    "_id": "590bf098e8c51828540865d3",
+                    "title": "Pied Piper"
+                },
+                {
+                    "_id": "590bf0e3e8c51828540865d4",
+                    "title": "Kanban приложение"
+                }
+            ]          
+      td Получить все имеющиеся доски
+  tbody
+      td /api/v1/board
+      td POST
+      td
+        pre.
+            {
+                "title": "Kanban приложение",
+                "_id": "590beedae8c51828540865d2"
+            }
+      td Создать новую доску. Возвращает созданную доску
+  tbody
+      td api/v1/board/590bf098e8c51828540865d3/columns
+      td GET
+      td
+        pre.
+            [
+                {
+                    "_id": "590bf3d1e8c51828540865d5",
+                    "title": "Сделать",
+                    "boardId": "590bf098e8c51828540865d3"
+                },
+                {
+                    "_id": "590bf4bee8c51828540865d6",
+                    "title": "В процессе",
+                    "boardId": "590bf098e8c51828540865d3"
+                },
+                {
+                    "_id": "590bf4d1e8c51828540865d7",
+                    "title": "Продакш",
+                    "boardId": "590bf098e8c51828540865d3"
+                }
+            ]
+      td Получить все колонки доски Pied Piper
+  tbody
+      td /api/v1/column
+      td POST
+      td
+        pre.
+            {
+                "title": "Тестирование",
+                "boardId": "590bf098e8c51828540865d3",
+                "_id": "590bf7e8e8c51828540865d8"
+            }
+      td Создать новую колонку в доске Pied Piper. Возвращает созданную колонку
+  tbody
+      td /api/v1/card/590b9a0d8159c12f283adf36
+      td POST
+      td
+        pre.
+            {
+                "_id": "590b9a0d8159c12f283adf36",
+                "title": "Front End",
+                "text": "Сборка клиентской части Pied Piper",
+                "manager": "Jared",
+                "developer": "Dinesh",
+                "boardId": "590bf098e8c51828540865d3",
+                "columnId": "590bf4bee8c51828540865d6",
+                "createdAt": "2017-05-04T21:15:57.112Z"
+            }
+      td Создать новую карточку в доске Pied Piper. Возвращает созданную карточку
+  tbody
+      td /api/v1/column/590bf7e8e8c51828540865d8/cards
+      td GET
+      td
+        pre.
+            [
+                {
+                    "_id": "590b9a0d8159c12f283adf36",
+                    "title": "Front End",
+                    "text": "Сборка клиентской части Pied Piper",
+                    "manager": "Jared",
+                    "developer": "Dinesh",
+                    "boardId": "590bf098e8c51828540865d3",
+                    "columnId": "590bf7e8e8c51828540865d8",
+                    "createdAt": "2017-05-04T21:15:57.112Z"
+                },
+                {
+                    "_id": "590c0566ebccd8c0c2f8660a",
+                    "title": "Заданька",
+                    "text": "Текстик",
+                    "manager": "Jared",
+                    "developer": "Gilfoyle",
+                    "boardId": "590bf098e8c51828540865d3",
+                    "columnId": "590bf7e8e8c51828540865d8",
+                    "createdAt": "2017-05-04T21:15:57.112Z"
+                }
+            ]
+      td Получить все карточки доски Pied Piper. Возвращает массив карточек
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    h3 Redux Blog Post API Reference
+p
+  | ALL requests require a key parameter, eg &grave;reduxblog.herokuapp.com/api/posts?key=123&grave;
+table.table
+  thead
+    tr
+      th Endpoint
+      th Method
+      th Example
+      th Sample Response
+      th Description
+  tbody
+    tr
+      td
+        i /api/posts
+      td GET
+      td http://reduxblog.herokuapp.com/api/posts
+      td
+        pre.
+          \n[
+            { id: 1,
+              title: 'Hi!',
+              categories: 'Computer, Friends',
+              content: 'Post about Friends'
+            },
+            {
+              id: 2,
+              title: 'New Post',
+              categories: 'Candy',
+              content: 'Post about Candy'
+            }
+          ]
+                    
+      td
+        | Fetches the 40 most recent posts in the database. Note this list is occasionally cleaned out.
+    tr
+      td
+        i /api/posts
+      td POST
+      td http://reduxblog.herokuapp.com/api/posts
+      td
+        pre.
+          \n{
+            id: 1,
+            title: 'Hi!',
+            categories: 'Computer, Friends',
+            content: 'Blog post content'
+          }
+                    
+      td Creates a new blog post entry. Returns the created blog post with the ID
+    tr
+      td
+        i /api/posts/:id
+      td GET
+      td http://reduxblog.herokuapp.com/api/posts/5
+      td
+        pre.
+          \n{
+            id: 1,
+            title: 'Hi!',
+            categories: 'Computer, Friends',
+            content: 'Blog post content'
+          }
+                    
+      td Fetches a single blog post with the given ID. Includes the blog&apos;s content.
+    tr
+      td
+        i /api/posts/:id
+      td DELETE
+      td http://reduxblog.herokuapp.com/api/posts/5
+      td
+        pre.
+          \n  {
+              id: 1,
+              title: 'Hi!',
+              categories: 'Computer, Friends',
+              content: 'Blog post content'
+            }
+                    
+      td Deletes a single blog post with the given ID. Returns the post
+</body>
+</html>

@@ -1,0 +1,5 @@
+//чтобы не прописывать --presets es2015
+{
+    "presets": ["es2015"]
+    //,"minified": true
+}
